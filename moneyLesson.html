@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Money work</title>
+</head>
+<body>
+	
+	<div id="coin1">
+	</div>
+	
+	<div id="coin2">
+	</div>
+	
+
+	<div id="coin3">
+	</div>
+	
+
+	<div id="coin4">
+	</div>
+	
+
+	<div id="coin5">
+	</div>
+
+	
+	<div id="totalValue">
+	</div>
+    <div>
+<button id="Calculate"> Calculate Value</button>
+</div>
+
+	<script> 
+		
+
+	    //pick 5 random numbers between 1 and 5.
+	    var num1 = parseInt((Math.random() * (5 - 1 + 1)), 10) + 1;
+	    var num2 = parseInt((Math.random() * (5 - 1 + 1)), 10) + 1;
+	    var num3 = parseInt((Math.random() * (5 - 1 + 1)), 10) + 1;
+	    var num4 = parseInt((Math.random() * (5 - 1 + 1)), 10) + 1;
+	    var num5 = parseInt((Math.random() * (5 - 1 + 1)), 10) + 1;
+	 
+
+	    //label each piece of money using switch case as 1 to 5
+	    //print the values next to the coin pictures
+	    
+
+	    function printCoin(number, coinPlace) {
+	    var showMoney;
+	    if (coinPlace ==1)
+     	     showMoney = document.getElementById('coin1');
+     	if (coinPlace ==2)
+     	    showMoney = document.getElementById('coin2');
+     	if (coinPlace ==3)
+     	    showMoney = document.getElementById('coin3');
+     	if (coinPlace ==4)
+     	    showMoney = document.getElementById('coin4');
+     	if (coinPlace ==5)
+     	    showMoney = document.getElementById('coin5');
+
+
+	    switch(number){
+	    	case 1 :
+	    		showMoney.innerHTML="<img src='money/loonie.png' alt='Loonie picture'/>"+ "$1.00";
+	    		break;
+	    	case 2:
+	    	    showMoney.innerHTML="<img src='money/toonie.png' alt='Toonie picture'/>"+"$2.00";
+	    		break;
+	        case 3:
+	    	    showMoney.innerHTML="<img src='money/quarter.jpg' alt='Quarter picture'/>" + "$0.25";
+	    		break
+	    	case 4:
+	    	    showMoney.innerHTML="<img src='money/dime.jpg' alt='dime picture'/>" + "0.10";
+	    		break;
+	    	case 5:
+	    	    showMoney.innerHTML="<img src='money/nickel.png' alt='Nickel picture'/>" + "0.05";
+	    		break;
+	    	
+	    		
+	    }
+	}
+
+		printCoin(num1, 1);
+		printCoin(num2, 2);
+		printCoin(num3, 3);
+		printCoin(num4, 4);
+		printCoin(num5, 5);
+	
+
+	function printAnswer(){
+		function calculateTotal(coinType){
+			var value;
+			switch(coinType){
+				case 1:
+				     value = 1.00;
+				    break;
+				case 2:
+					value = 2.00;
+					break;
+				case 3:
+					value = 0.25;
+					break;
+				case 4:
+					value = 0.10;
+					break;
+				case 5:
+				 	value = 0.05;
+				 	break;
+			
+			}
+			return value;
+		}
+		var total = 0.00;
+		total+=calculateTotal(num1);
+		total+=calculateTotal(num2); 
+		total+=calculateTotal(num3); 
+		total+=calculateTotal(num4); 
+		total+=calculateTotal(num5);
+		
+     
+
+	document.getElementById('totalValue').innerHTML="<p>The total amount of money is $" + total.toFixed(2) + "</p>";
+	 }	
+	
+
+    document.getElementById("Calculate").onclick = function() {printAnswer()};
+    
+
+	    
+	   </script>
+
+
+</body>
+</html>
